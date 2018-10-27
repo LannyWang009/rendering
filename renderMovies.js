@@ -1,10 +1,66 @@
 
 function renderMovies (movies) {
-  return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
+  var board = ''
+  for (var i = 0; i < movies.length; i++) {
+    board += `
+    <br/>
+      <div style=" display: flex;
+      flex-direction: row;
+      width: 400px;
+      height: 200px;
+      background-color: grey;
+      border-radius:5%;
+      ">
+        <div style="flex:1;
+        background-image: url(${movies[i].poster});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin:10px 10px 10px 10px;">
         </div>
+
+        <div style="flex:1.7;
+        background-color: rgba(228,224,216,0.71);
+        border-radius:5%;
+        margin:10px 10px 10px 10px;
+        display:flex;
+        flex-direction:column;
+        justify-content: between;">
+          <div style="flex:1;
+          color:black;
+          margin-left:20px;
+          margin-top:10px;">
+            <p style="font-size:15px; line-height:20%;">${movies[i].title}</p>
+            <p style="font-size:8px; line-height:20%;">${movies[i].year}</p>
+          </div>
+          <div style="flex:1;
+          color:grey;
+          font-size:20px;
+          margin-left:20px;
+          margin-top:5px;">
+            <p style="line-height:20%;">IMDB:<p>
+            <p style="line-height:20%;">${movies[i].imdbRating}/10<p>
+          </div>
+          <div style="flex:1;
+          color:grey;
+          font-size:20px;
+          margin-left:20px;
+          margin-top:5px;">
+            <p style="line-height:20%;">Rotten Tomatoes:<p>
+            <p style="line-height:20%;">${movies[i].rottenTomatoesRating * 100}%<p>
+          </div>
+
+
+        </div>
+        </div>
+        
+        
+
+    <br/>
+    <br/>
     `
+  }
+  return board;
 }
 
 function movies () {
